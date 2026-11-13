@@ -1,1 +1,45 @@
-[{"title": "Grilled Lemon Herb Chicken", "cuisine": "American", "technique": "Grilling", "total_time": "35 mins", "rating": null, "ingredients": {"chicken breasts": "2", "olive oil": "2 tbsp", "lemon juice": "1 lemon", "minced garlic": "2 cloves", "dried oregano": "1 tsp", "salt and pepper": "to taste"}, "instructions": ["Marinate chicken in olive oil, lemon juice, garlic, oregano, salt, and pepper for 15 minutes.", "Preheat grill to medium-high heat.", "Grill chicken for 6 to 8 minutes on each side until fully cooked."]}]
+[
+  {
+    "title": "Grilled Lemon Herb Chicken",
+    "cuisine": "American",
+    "technique": "Grilling",
+    "total_time": "35 mins",
+    "rating": null,
+    "ingredients": {
+      "chicken breasts": "2",
+      "olive oil": "2 tbsp",
+      "lemon juice": "1 lemon",
+      "minced garlic": "2 cloves",
+      "dried oregano": "1 tsp",
+      "salt and pepper": "to taste"
+    },
+    "instructions": [
+      "Marinate chicken in olive oil, lemon juice, garlic, oregano, salt, and pepper for 15 minutes.",
+      "Preheat grill to medium-high heat.",
+      "Grill chicken for 6 to 8 minutes on each side until fully cooked."
+    ]
+  },
+  {
+  "title": "Vegetable Stir-Fry",
+  "cuisine": "Chinese",
+  "technique": "Stir-Frying",
+  "total_time": "20 mins",
+  "rating": null,
+  "ingredients": {
+    "broccoli": "2 cups",
+    "bell pepper": "1 sliced",
+    "carrots": "2 sliced",
+    "soy sauce": "3 tbsp",
+    "sesame oil": "1 tbsp",
+    "minced ginger": "1 tsp",
+    "minced garlic": "2 cloves",
+    "cornstarch": "1 tsp"
+  },
+  "instructions": [
+    "Whisk soy sauce, sesame oil, ginger, garlic, and cornstarch in a small bowl to make the sauce.",
+    "Heat a wok or large skillet over high heat with a splash of oil.",
+    "Add broccoli, bell pepper, and carrots; stir-fry for 4 to 5 minutes until crisp-tender.",
+    "Pour the sauce over the vegetables and toss for 1 to 2 minutes until thickened and glossy."
+  ]
+  }
+]

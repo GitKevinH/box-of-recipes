@@ -13,8 +13,7 @@ def start_recipes():
 
         print("Options for browsing recipes")
         print("1. Browse Recipes by Cuisine - Find something you're craving here!")
-        print("2. Browse Recipes by Ingredient - Want to the last of your vegetables?")
-        print("3. Browse Recipes by Technique - Let's nail that skill down.")
+        print("2. Browse Recipes by Ingredient - Use the last of your veggies?")
         print("4. Browse Everything (Warning, this will be large)\n")
 
         print("00. Go back")
@@ -28,6 +27,19 @@ def start_recipes():
             nav = browse_by_cuisine()
             if nav == "main_menu":
                 return
+
+        if user_input == "2":
+            invalid_count = 0
+            nav = browse_by_ingredient()
+            if nav == "main_menu":
+                return
+
+        elif user_input == "4":
+            invalid_count = 0
+            recipes = load_recipes()
+            nav = recipe_list(recipes, "All Available Recipes")
+            if nav == "main_menu":
+                return "main_menu"
         elif user_input in ("00", "98"):
             return
         elif user_input == "99":
@@ -93,6 +105,53 @@ def browse_by_cuisine():
                 else:
                     invalid_count = 0
 
+def browse_by_ingredient():
+    recipes = load_recipes()
+    ingredients = get_category_values(recipes, "ingredients")
+    counts = get_category_counts(recipes, "ingredients")
+    invalid_count = 0
+
+    while True:
+        print("Box of Recipes".center(80))
+        print("\n")
+        print("Browse by Ingredient\n")
+
+        print("Want to use up what's left in your fridge? Select an ingredient below.\n")
+
+        print("Options for recipes by ingredients:")
+        for index, ingredient in enumerate(ingredients, start=1):
+            print(f"{index}. {ingredient} ({counts[ingredient]})")
+        print()
+
+        print("00. Go back")
+        print("98. Main Menu")
+        print("99. Exit\n")
+
+        user_input = input("Please enter your choice: ").strip()
+
+        if user_input == "00":
+            return "back"
+        elif user_input == "98":
+            return "main_menu"
+        elif user_input == "99":
+            print("Exiting. See you later!")
+            exit()
+        elif user_input.isdigit() and 1 <= int(user_input) <= len(ingredients):
+            invalid_count = 0
+            selected_ingredient = ingredients[int(user_input) - 1]
+            matching_recipes = get_recipes_by_category(recipes, "ingredients", selected_ingredient)
+            nav = recipe_list(matching_recipes, f"Recipes with {selected_ingredient}")
+            if nav == "main_menu":
+                return "main_menu"
+        else:
+            print("\nInvalid choice. Please enter a valid number.\n")
+            invalid_count += 1
+            if invalid_count >= 5:
+                reset_input = input("It looks like you might be stuck, do you want to reset and start from the beginning? (y/n): ").strip().lower()
+                if reset_input == "y":
+                    return "main_menu"
+                else:
+                    invalid_count = 0
 
 def load_recipes():
     project_root = Path(__file__).resolve().parent
